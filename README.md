@@ -15,6 +15,9 @@ Esse projeto cria os seguintes recursos na AWS:
 
 ## Como executar
 
+A arquitetura final do projeto ficará da seguinte forma:
+![](img/architecture.png)
+
 1. Exportar as credenciais da AWS (ou usar as credenciais em `~/.aws/credentials`)
 
 > **Importante:** se quiser usar uma chave para acessar a instância, alterar o valor da  variável `instance_key_name`  no arquivo `terraform/terraform.tfvars` para o nome da sua chave.
