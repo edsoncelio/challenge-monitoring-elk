@@ -1,0 +1,64 @@
+---
+- name: Configure EC2 instance
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Run apt-get update
+      ansible.builtin.apt:
+        update_cache: yes
+    
+- name: Install and configure the dependencies
+  hosts: all
+  become: true
+
+  pre_tasks:
+    - name: Use Java 8 on Debian/Ubuntu.
+      set_fact:
+        java_packages:
+          - openjdk-8-jdk
+      when: ansible_os_family == 'Debian'
+
+  roles:
+    - geerlingguy.docker
+    - geerlingguy.pip
+    - geerlingguy.java
+    - geerlingguy.logstash
+    - geerlingguy.filebeat
+
+  vars:
+    pip_install_packages:
+      - name: docker
+    docker_install_compose: false
+    filebeat_create_config: false
+    logstash_monitor_local_syslog: false
+
+- name: Configure logstash and filebeat and start the app
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Copy the filebeat template
+    ansible.builtin.copy:
+      src: ./filebeat.yml
+      dest: /etc/filebeat/filebeat.yml
+
+  - name: Copy the logstash template
+    ansible.builtin.copy:
+      src: ./30-elasticsearch-output.conf
+      dest: /etc/logstash/conf.d/30-elasticsearch-output.conf
+    
+  
+  - name: Copy the beats template
+    ansible.builtin.copy:
+      src: ./01-beats-input.conf
+      dest: /etc/logstash/conf.d/01-beats-input.conf
+       
+  - name: Start the nginx hello container
+    community.docker.docker_container:
+      name: hello-nginx
+      state: started
+      image: nginxdemos/hello
+      restart_policy: always
+      ports:
+          - 80:80

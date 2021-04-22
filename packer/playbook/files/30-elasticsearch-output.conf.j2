@@ -1,0 +1,10 @@
+output {
+  elasticsearch {
+    hosts => ["url"]
+    ssl => true
+    index => "container-logs-%{+YYYY.MM.dd}"
+    user => "myAdminUser"
+    password => "myAwesomePassword2021@"
+    ilm_enabled => false
+  }
+}
