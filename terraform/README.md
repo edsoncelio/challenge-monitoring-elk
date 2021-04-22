@@ -15,7 +15,7 @@
 Esse projeto provisiona um AWS ES e uma instância EC2, seguindo o seguinte fluxo:   
 1. Cria o recurso ES 
 2. Ao final da criação do ES, é usado um provisioner local para executar as seguintes tarefas:
-    * adição do *enpoint* do elasticsearch no arquivo de configuração do logstash
+    * adição do *endpoint* do elasticsearch no arquivo de configuração do logstash
     * chamada a execução do packer para construir uma AMI 
 3. Criação de uma EC2 usando a versão mais recente da AMI criada pelo usuário atual
 
