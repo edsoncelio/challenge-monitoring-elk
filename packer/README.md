@@ -19,7 +19,7 @@
 Esse projeto usa o Packer e Ansible para provisionar e criar uma AMI na aws, seguindo o seguinte fluxo:
 1. Usando as variáveis criadas em `variables.pkr.hcl` configura uma AMI;
 2. Usando o *provisioner* `shell-local`instala os requisitos usados pelo Ansible;
-3. Usando o *provisioner* `ansible` com o playbook `main.yml` provisiona os seguintes recursos:
+3. Usando o *provisioner* `ansible` com o playbook `playbook/main.yml` provisiona os seguintes recursos:
     * instala e configura o docker
     * instala e configura o logstash (e dependências)
     * instala e configura o filebeat ( e dependências)
