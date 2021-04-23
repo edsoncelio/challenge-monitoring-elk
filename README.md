@@ -53,8 +53,8 @@ es_master_user_password = SENHA_INCRIVEL_AQUI"
 ```
 No Kibana, vai estar criado um índex no formato: `container-logs-%{+YYYY.MM.dd}`
 
-> Se quiser inspecionar os *outputs* após o build, é só entrar em `terraform/` e executar:   
-`terraform outputs`
+> Se quiser inspecionar os *outputs* após o build, é só executar:   
+`make show-output`
 
 ## Removendo os recursos 🔥
 Para remover os recursos criados, executar:   

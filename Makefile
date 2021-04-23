@@ -29,3 +29,7 @@ create-infra:
 ## Destruir todos os recursos de infraestrutura
 destroy-infra:
 	cd terraform; terraform destroy -auto-approve
+
+## Exibir outputs do Terraform
+show-output:
+	cd terraform; terraform output

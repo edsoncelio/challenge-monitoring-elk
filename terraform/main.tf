@@ -47,7 +47,7 @@ module "ssh_sg" {
   ingress_cidr_blocks = var.sg_ingress_cidr_block
 }
 
-# EC2 Instance
+# Instância EC2
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 2.17"
@@ -69,7 +69,7 @@ module "ec2_instance" {
   ]
 }
 
-# # #Managed ELK
+# Aws ElasticSearch
 resource "aws_elasticsearch_domain" "elk" {
   domain_name           = var.es_domain_name
   elasticsearch_version = var.es_version
