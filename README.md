@@ -21,14 +21,20 @@ A arquitetura final do projeto ficará da seguinte forma:
 
 ## Como executar
 
+#### **Importante:** 
+se quiser usar uma chave SSH para acessar a instância, é preciso fazer o seguinte:    
+* alterar o valor da  variável `instance_key_name`  no arquivo `terraform/terraform.tfvars` para o nome da sua chave SSH **existente na aws**;
+* descomentar a seguinte linha do arquivo `terraform/main.tf`:    
+ `#key_name = var.instance_key_name`
+
+### Passo a passo para executar
+
 1. Usar as credenciais da aws em `~/.aws/credentials`, no formato:
 ```
 [default]
 aws_access_key_id = <minha_chave_de_acesso>
 aws_secret_access_key = <minha_chave_secreta>
 ```
-
-> **Importante:** se quiser usar uma chave para acessar a instância, alterar o valor da  variável `instance_key_name`  no arquivo `terraform/terraform.tfvars` para o nome da sua chave.
 
 2. Criar a stack:   
 `make create-infra`
