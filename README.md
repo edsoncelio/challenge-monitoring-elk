@@ -8,15 +8,17 @@ Esse projeto provisiona um serviço Elasticsearch e uma instância EC2 com logst
 * Credenciais de uma conta da AWS (access_key e secret_key)
 
 ## Como funciona
+
 Esse projeto cria os seguintes recursos na AWS:
 * Um serviço ElasticSearch;
 * Uma instância EC2 (com dois security groups: um para SSH e outro para HTTP);
 * Uma AMI baseada em Ubuntu 18.04;
 
-## Como executar
-
 A arquitetura final do projeto ficará da seguinte forma:
+
 ![](img/architecture.png)
+
+## Como executar
 
 1. Exportar as credenciais da AWS (ou usar as credenciais em `~/.aws/credentials`)
 
