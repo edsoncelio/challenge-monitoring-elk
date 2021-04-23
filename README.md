@@ -11,8 +11,9 @@ Esse projeto provisiona um serviço Elasticsearch e uma instância EC2 com logst
 
 Esse projeto cria os seguintes recursos na AWS:
 * Um serviço ElasticSearch;
-* Uma instância EC2 (com dois security groups: um para SSH e outro para HTTP);
 * Uma AMI baseada em Ubuntu 18.04;
+* Uma instância EC2 (com dois security groups: um para SSH e outro para HTTP)
+
 
 A arquitetura final do projeto ficará da seguinte forma:
 
@@ -20,7 +21,12 @@ A arquitetura final do projeto ficará da seguinte forma:
 
 ## Como executar
 
-1. Exportar as credenciais da AWS (ou usar as credenciais em `~/.aws/credentials`)
+1. Usar as credenciais da aws em `~/.aws/credentials`, no formato:
+```
+[default]
+aws_access_key_id = <minha_chave_de_acesso>
+aws_secret_access_key = <minha_chave_secreta>
+```
 
 > **Importante:** se quiser usar uma chave para acessar a instância, alterar o valor da  variável `instance_key_name`  no arquivo `terraform/terraform.tfvars` para o nome da sua chave.
 
@@ -39,10 +45,11 @@ Para acessar o Kibana, o login é feito com as credenciais criadas em `terraform
 es_master_user_name     = "USER_INCRIVEL_AQUI"
 es_master_user_password = SENHA_INCRIVEL_AQUI"
 ```
+No Kibana, vai estar criado um índex no formato: `container-logs-%{+YYYY.MM.dd}`
 
 > Se quiser inspecionar os *outputs* após o build, é só entrar em `terraform/` e executar:   
 `terraform outputs`
 
-## Removendo os recursos
-Para remover os recursos criados:   
+## Removendo os recursos 🔥
+Para remover os recursos criados, executar:   
 `make destroy-infra`
