@@ -3,7 +3,7 @@ Esse projeto provisiona um serviço Elasticsearch e uma instância EC2 com logst
 
 ## Requisitos
 * Terraform 0.14+
-* Packer v.17+
+* Packer v1.7+
 * Ansible 2.10+
 * Credenciais de uma conta da AWS (access_key e secret_key)
 
