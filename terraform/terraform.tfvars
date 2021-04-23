@@ -4,7 +4,7 @@ sg_ingress_cidr_block = ["0.0.0.0/0"]
 instance_name  = "ec2-instance-elk"
 instance_count = 1
 instance_type  = "t2.small"
-instance_key_name = "key-name"
+instance_key_name = "minha-chave-ssh"
 #es envs
 es_domain_name          = "elk-aws"
 es_version              = "7.9"

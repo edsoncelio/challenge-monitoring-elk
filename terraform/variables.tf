@@ -27,6 +27,12 @@ variable "instance_type" {
   type        = string
 }
 
+variable "instance_key_name" {
+  description = "Name of key pair"
+  type = string
+  default = ""
+}
+
 #Provider variables
 variable "provider_region" {
   description = "Provider region"
@@ -74,7 +80,4 @@ variable "es_master_user_password" {
   sensitive   = true
 }
 
-variable "instance_key_name" {
-  description = "Name of key pair"
-  type = string
-}
+

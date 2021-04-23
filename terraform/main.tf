@@ -54,7 +54,7 @@ module "ec2_instance" {
 
   name           = var.instance_name
   instance_count = var.instance_count
-  key_name = var.instance_key_name
+  #key_name = var.instance_key_name
   ami           = data.aws_ami.packer_ami.id
   instance_type = var.instance_type
   monitoring    = var.instance_monitoring
