@@ -1,5 +1,5 @@
 # Stack de monitoramento com ELK
-Esse projeto provisiona um serviço Elasticsearch e uma instância EC2 com logstash com filebeat para coleta de logs de contêineres.
+Esse projeto provisiona um serviço Elasticsearch e uma instância EC2 com logstash e filebeat para coleta de logs de contêineres.
 
 ## Requisitos
 * Terraform 0.14+
